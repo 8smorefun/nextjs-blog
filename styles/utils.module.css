@@ -50,3 +50,12 @@
 .lightText {
   color: #999;
 }
+.noLinkColor {
+  color: initial;
+}
+a.noUnderlineOnHover:hover {
+  text-decoration: none;
+}
+a:hover .underlineOnLinkHover {
+  text-decoration: underline;
+}
