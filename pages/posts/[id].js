@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Layout from '../../components/layout'
+import Layout, { siteTitle } from '../../components/layout'
 import Date from '../../components/date'
 import { getAllPostIds, getPostData } from '../../lib/posts'
 import utilStyles from '../../styles/utils.module.css'
@@ -7,7 +7,11 @@ import utilStyles from '../../styles/utils.module.css'
 export default function Post({ postData }) {
   return <Layout>
     <Head>
-      <title>{postData.title}</title>
+      <title>{postData.title} | {siteTitle}</title>
+      <meta
+        name="description"
+        content={postData.title + ' - ' + postData.contentHtml.replace(/(<([^>]+)>)/gi, "").substr(0, 60) + '...'}
+      />
     </Head>
     <article>
       <h1 className={utilStyles.headingXl}>{postData.title}</h1>
